@@ -5,6 +5,7 @@
 	"client": [
 		"CreateWorldScreenMixin"
 	],
+    "verbose": false,
 	"injectors": {
 		"defaultRequire": 1
 	}
