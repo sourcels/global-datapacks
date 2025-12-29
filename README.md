@@ -1,1 +1,1 @@
-# global-datapacks
+# Global Datapacks
