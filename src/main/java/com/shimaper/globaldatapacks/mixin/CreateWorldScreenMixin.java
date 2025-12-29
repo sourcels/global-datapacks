@@ -11,13 +11,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.io.File;
 import java.nio.file.Path;
 
+
 @Mixin(CreateWorldScreen.class)
 public abstract class CreateWorldScreenMixin {
-
     @Inject(method = "openDataPackSelectionScreen", at = @At("HEAD"))
     private void onOpenPackScreen(CallbackInfo ci) {
-        GlobalDatapacks.LOGGER.info("User opened datapack selection screen");
-
         try {
             Path tempDir = Path.of(System.getProperty("java.io.tmpdir"));
             Minecraft client = Minecraft.getInstance();
@@ -28,17 +26,37 @@ public abstract class CreateWorldScreenMixin {
             );
 
             if (tempWorldDirs != null && tempWorldDirs.length > 0) {
-                Path tempWorldPath = tempWorldDirs[0].toPath();
-                GlobalDatapacks.LOGGER.info("Found temporary world folder: {}", tempWorldPath);
+                File newestTempWorld = null;
+                long newestTime = 0;
 
-                boolean copied = GlobalDatapacks.copyDatapacks(tempWorldPath, minecraftDir);
+                GlobalDatapacks.LOGGER.debug("Found {} temporary world folder(s)", tempWorldDirs.length);
 
-                if (copied) {
-                    GlobalDatapacks.LOGGER.info("Datapacks are ready to use!");
+                for (File tempWorld : tempWorldDirs) {
+                    long lastModified = tempWorld.lastModified();
+                    GlobalDatapacks.LOGGER.debug("Checking folder: {} (modified: {})",
+                            tempWorld.getName(), lastModified);
+
+                    if (lastModified > newestTime) {
+                        newestTime = lastModified;
+                        newestTempWorld = tempWorld;
+                    }
+                }
+
+                if (newestTempWorld != null) {
+                    Path tempWorldPath = newestTempWorld.toPath();
+                    GlobalDatapacks.LOGGER.info("Selected newest temporary world folder: {} (age: {} ms ago)",
+                            tempWorldPath.getFileName(),
+                            System.currentTimeMillis() - newestTime);
+
+                    boolean copied = GlobalDatapacks.copyDatapacks(tempWorldPath, minecraftDir);
+
+                    if (copied) {
+                        GlobalDatapacks.LOGGER.info("Datapacks are ready to use!");
+                    }
                 }
             } else {
-                GlobalDatapacks.LOGGER.warn("Temporary world folder not found in {}", tempDir);
-                GlobalDatapacks.LOGGER.warn("Datapacks will be copied on next screen open");
+                GlobalDatapacks.LOGGER.warn("No temporary world folders found in {}", tempDir);
+                GlobalDatapacks.LOGGER.warn("This might happen if you opened Data Packs screen before the temp folder was created");
             }
 
         } catch (Exception e) {

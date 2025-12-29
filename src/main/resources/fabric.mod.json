@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "global-datapacks",
-	"version": "${version}+fabric",
+	"version": "${version}+fabric+1.21.11",
     "environment": "client",
     "depends": {
       "fabricloader": ">=0.18.4",
@@ -24,17 +24,10 @@
 	"entrypoints": {
 		"main": [
 			"com.shimaper.globaldatapacks.GlobalDatapacks"
-		],
-		"client": [
-			"com.shimaper.globaldatapacks.GlobalDatapacksClient"
 		]
 	},
 	"mixins": [
-		"global-datapacks.mixins.json",
-		{
-			"config": "global-datapacks.client.mixins.json",
-			"environment": "client"
-		}
+        "global-datapacks.mixins.json"
 	],
     "custom": {
       "modmenu": {

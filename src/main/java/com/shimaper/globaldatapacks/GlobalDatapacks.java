@@ -1,6 +1,7 @@
 package com.shimaper.globaldatapacks;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +18,24 @@ public class GlobalDatapacks implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Global Datapacks initialized for Minecraft 1.21.11");
+
+        createGlobalDatapacksFolder();
+    }
+
+    private void createGlobalDatapacksFolder() {
+        try {
+            Path minecraftDir = FabricLoader.getInstance().getGameDir();
+            Path datapacksDir = minecraftDir.resolve("datapacks");
+
+            if (!Files.exists(datapacksDir)) {
+                Files.createDirectories(datapacksDir);
+                LOGGER.info("Created global datapacks folder: {}", datapacksDir);
+            } else {
+                LOGGER.debug("Global datapacks folder already exists: {}", datapacksDir);
+            }
+        } catch (IOException e) {
+            LOGGER.error("Failed to create global datapacks folder", e);
+        }
     }
 
     public static boolean copyDatapacks(Path tempWorldPath, Path minecraftDir) {
@@ -26,7 +45,6 @@ public class GlobalDatapacks implements ModInitializer {
         }
 
         Path globalDatapacksDir = minecraftDir.resolve("datapacks");
-        Path worldDatapacksDir = tempWorldPath.resolve("datapacks");
 
         if (!Files.exists(globalDatapacksDir)) {
             LOGGER.info("Global datapacks folder not found: {}", globalDatapacksDir);
@@ -35,9 +53,9 @@ public class GlobalDatapacks implements ModInitializer {
         }
 
         try {
-            if (!Files.exists(worldDatapacksDir)) {
-                Files.createDirectories(worldDatapacksDir);
-                LOGGER.info("Created datapacks folder: {}", worldDatapacksDir);
+            if (!Files.exists(tempWorldPath)) {
+                Files.createDirectories(tempWorldPath);
+                LOGGER.info("Created datapacks folder: {}", tempWorldPath);
             }
 
             int copiedCount = 0;
@@ -45,7 +63,7 @@ public class GlobalDatapacks implements ModInitializer {
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(globalDatapacksDir)) {
                 for (Path sourceDatapack : stream) {
                     String datapackName = sourceDatapack.getFileName().toString();
-                    Path targetDatapack = worldDatapacksDir.resolve(datapackName);
+                    Path targetDatapack = tempWorldPath.resolve(datapackName);
 
                     if (Files.isDirectory(sourceDatapack)) {
                         copyDirectory(sourceDatapack, targetDatapack);
@@ -61,7 +79,7 @@ public class GlobalDatapacks implements ModInitializer {
 
             if (copiedCount > 0) {
                 LOGGER.info("Successfully copied {} datapack(s) from {} to {}",
-                        copiedCount, globalDatapacksDir, worldDatapacksDir);
+                        copiedCount, globalDatapacksDir, tempWorldPath);
                 datapacksCopiedForCurrentSession = true;
                 return true;
             } else {

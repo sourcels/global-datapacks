@@ -1,14 +1,11 @@
 {
-  "required": true,
-  "minVersion": "0.8",
-  "package": "com.shimaper.globaldatapacks.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "mixins": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "client": [
-    "CreateWorldScreenMixin"
-  ]
+	"required": true,
+	"package": "com.shimaper.globaldatapacks.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"CreateWorldScreenMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }
