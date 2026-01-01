@@ -9,6 +9,9 @@
       "java": ">=21",
       "fabric-api": "*"
     },
+    "recommends": {
+      "modmenu": "*"
+    },
 	"name": "Global Datapacks",
 	"description": "Automate datapack addition.",
 	"authors": [
