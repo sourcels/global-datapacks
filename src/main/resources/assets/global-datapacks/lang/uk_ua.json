@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Конфігурація Global Datapacks",
+  "global-datapacks.config.embed_inactive": "Впровадити неактивні датапаки",
+  "global-datapacks.config.true": "істина",
+  "global-datapacks.config.false": "хибність",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "Мод, який дозволяє заздалегідь вибирати доступні датапаки, щоб не додавати їх знову при кожному створенні нового світу.",
+  "modmenu.summaryTranslation.global-datapacks": "Автоматизація додавання датапаків."
+}

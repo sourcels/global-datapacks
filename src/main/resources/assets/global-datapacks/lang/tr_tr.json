@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Global Datapacks Yapılandırması",
+  "global-datapacks.config.embed_inactive": "Devre dışı veri paketlerini göm",
+  "global-datapacks.config.true": "doğru",
+  "global-datapacks.config.false": "yanlış",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "Mevcut veri paketlerini önceden seçmenizi sağlayan bir mod, böylece her yeni dünya oluşturduğunuzda bunları tekrar eklemek zorunda kalmazsınız.",
+  "modmenu.summaryTranslation.global-datapacks": "Veri paketi eklemeyi otomatikleştir."
+}

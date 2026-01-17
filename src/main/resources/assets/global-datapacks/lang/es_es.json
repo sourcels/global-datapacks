@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Configuración de Global Datapacks",
+  "global-datapacks.config.embed_inactive": "Incrustar datapacks inactivos",
+  "global-datapacks.config.true": "verdadero",
+  "global-datapacks.config.false": "falso",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "Un mod que te permite preseleccionar los datapacks disponibles para que no tengas que añadirlos cada vez que creas un mundo nuevo.",
+  "modmenu.summaryTranslation.global-datapacks": "Automatizar la adición de datapacks."
+}

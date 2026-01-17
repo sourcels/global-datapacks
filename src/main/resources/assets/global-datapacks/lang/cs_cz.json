@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Nastavení Global Datapacks",
+  "global-datapacks.config.embed_inactive": "Vložit neaktivní databalíčky",
+  "global-datapacks.config.true": "pravda",
+  "global-datapacks.config.false": "nepravda",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "Mód, který vám umožní předvolit dostupné databalíčky, abyste je nemuseli znovu přidávat při každém vytváření nového světa.",
+  "modmenu.summaryTranslation.global-datapacks": "Automatizace přidávání databalíčků."
+}

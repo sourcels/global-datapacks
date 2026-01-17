@@ -10,7 +10,7 @@
       "fabric-api": "*"
     },
     "recommends": {
-      "modmenu": "*"
+      "modmenu": "16.0.0"
     },
 	"name": "Global Datapacks",
 	"description": "Automate datapack addition.",
@@ -22,12 +22,15 @@
         "sources": "https://github.com/sourcels/global-datapacks",
         "issues": "https://github.com/sourcels/global-datapacks/issues"
 	},
-	"license": "MIT",
+	"license": "Apache 2.0",
 	"icon": "assets/global-datapacks/icon.png",
 	"entrypoints": {
 		"main": [
 			"com.shimaper.globaldatapacks.GlobalDatapacks"
-		]
+		],
+        "modmenu": [
+            "com.shimaper.globaldatapacks.ModMenuIntegration"
+        ]
 	},
 	"mixins": [
         "global-datapacks.mixins.json"

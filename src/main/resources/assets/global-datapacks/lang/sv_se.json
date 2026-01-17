@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Konfiguration för Global Datapacks",
+  "global-datapacks.config.embed_inactive": "Bädda in inaktiva datapaket",
+  "global-datapacks.config.true": "sant",
+  "global-datapacks.config.false": "falskt",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "En mod som låter dig förvälja tillgängliga datapaket så att du inte behöver lägga till dem igen varje gång du skapar en ny värld.",
+  "modmenu.summaryTranslation.global-datapacks": "Automatisera tillägg av datapaket."
+}

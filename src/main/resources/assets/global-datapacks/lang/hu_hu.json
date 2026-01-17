@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Global Datapacks Konfiguráció",
+  "global-datapacks.config.embed_inactive": "Inaktív adatcsomagok beágyazása",
+  "global-datapacks.config.true": "igaz",
+  "global-datapacks.config.false": "hamis",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "Egy mod, amely lehetővé teszi a rendelkezésre álló adatcsomagok előzetes kiválasztását, így nem kell őket minden alkalommal hozzáadnia egy új világ létrehozásakor.",
+  "modmenu.summaryTranslation.global-datapacks": "Adatcsomag-hozzáadás automatizálása."
+}

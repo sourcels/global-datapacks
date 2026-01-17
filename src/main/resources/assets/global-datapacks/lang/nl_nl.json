@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Global Datapacks Configuratie",
+  "global-datapacks.config.embed_inactive": "Inactieve datapacks insluiten",
+  "global-datapacks.config.true": "waar",
+  "global-datapacks.config.false": "onwaar",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "Een mod waarmee je beschikbare datapacks vooraf kunt selecteren, zodat je ze niet telkens opnieuw hoeft toe te voegen bij het maken van een nieuwe wereld.",
+  "modmenu.summaryTranslation.global-datapacks": "Datapack-toevoeging automatiseren."
+}

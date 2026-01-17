@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "全域數據包配置",
+  "global-datapacks.config.embed_inactive": "嵌入未啟用的數據包",
+  "global-datapacks.config.true": "真",
+  "global-datapacks.config.false": "假",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "一個允許您預選可用數據包的模組，讓您無需在每次創建新世界時重新添加它們。",
+  "modmenu.summaryTranslation.global-datapacks": "自動化數據包添加。"
+}

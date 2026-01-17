@@ -1,0 +1,10 @@
+{
+  "global-datapacks.config.title": "Global Datapacks 설정",
+  "global-datapacks.config.embed_inactive": "비활성 데이터팩 포함",
+  "global-datapacks.config.true": "참",
+  "global-datapacks.config.false": "거짓",
+
+  "modmenu.nameTranslation.global-datapacks": "Global Datapacks",
+  "modmenu.descriptionTranslation.global-datapacks": "사용 가능한 데이터팩을 미리 선택하여 새로운 월드를 생성할 때마다 다시 추가할 필요가 없도록 해주는 모드입니다.",
+  "modmenu.summaryTranslation.global-datapacks": "데이터팩 추가 자동화."
+}

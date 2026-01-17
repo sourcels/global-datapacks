@@ -10,6 +10,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Collection;
 
 import com.shimaper.globaldatapacks.GlobalDatapacks;
+import com.shimaper.globaldatapacks.GlobalDatapacksConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
 import net.minecraft.client.gui.screens.worldselection.WorldCreationUiState;
@@ -35,14 +36,17 @@ public abstract class CreateWorldScreenMixin {
     @Inject(method = "getOrCreateTempDataPackDir", at = @At("RETURN"))
     private void afterCreateTempDir(CallbackInfoReturnable<Path> cir) {
         Path tempPath = cir.getReturnValue();
-
         Minecraft client = Minecraft.getInstance();
         Path minecraftDir = client.gameDirectory.toPath();
-
         GlobalDatapacks.copyDatapacks(tempPath, minecraftDir);
     }
+
     @Inject(method = "onCreate", at = @At("HEAD"))
     private void cleanupUnusedDatapacks(CallbackInfo ci) {
+        if (GlobalDatapacksConfig.embedInactiveDatapacks) {
+            return;
+        }
+
         Path tempPath = this.getOrCreateTempDataPackDir();
 
         if (tempPath == null || !Files.exists(tempPath)) return;
@@ -73,7 +77,6 @@ public abstract class CreateWorldScreenMixin {
                     Files.delete(file);
                     return FileVisitResult.CONTINUE;
                 }
-
                 @Override
                 public @NotNull FileVisitResult postVisitDirectory(@NotNull Path dir, IOException exc) throws IOException {
                     Files.delete(dir);

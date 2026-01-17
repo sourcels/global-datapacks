@@ -16,6 +16,7 @@ public class GlobalDatapacks implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        GlobalDatapacksConfig.load();
         createGlobalDatapacksFolder();
     }
 
