@@ -1,16 +1,16 @@
 {
 	"schemaVersion": 1,
 	"id": "global-datapacks",
-	"version": "${version}+fabric+1.21.11",
+  "version": "${mod_version}+${loader}+${minecraft_version}",
     "environment": "client",
     "depends": {
-      "fabricloader": ">=0.18.4",
-      "minecraft": "~1.21.11",
-      "java": ">=21",
+      "fabricloader": ">=${loader_version}",
+      "minecraft": "~26.1-",
+      "java": ">=25",
       "fabric-api": "*"
     },
     "recommends": {
-      "modmenu": "16.0.0"
+      "modmenu": ">=${modmenu_version}"
     },
 	"name": "Global Datapacks",
 	"description": "Automate datapack addition.",
